@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import Marker from 'components/Marker';
 import './FavoritesMap.css';
-
-const Marker = ({ lat, lng, text }) => <span>{text}</span>;
 
 export default class FavoritesMap extends Component {
   static defaultProps = {

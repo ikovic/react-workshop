@@ -23,14 +23,12 @@ class FavoritesMap extends Component {
   onMapClick = (mapProps, map, clickEvent) => {
     const { latLng: { lat, lng } } = clickEvent;
 
-    return this.props.addMarker({
-      title: 'Another',
-      name: { id: Date.now(), text: 'YES' },
-      position: {
-        lat: lat(),
-        lng: lng()
-      }
-    });
+    const position = {
+      lat: lat(),
+      lng: lng()
+    };
+
+    return this.props.showAddMarkerModal(position);
   };
 
   renderMarkers = () =>

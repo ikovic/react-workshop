@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Header from 'components/Header';
 import MarkerList from 'components/MarkerList';
+import AddMarkerModal from 'components/AddMarkerModal';
 import FavoritesMap from 'containers/FavoritesMap';
 
 import './App.css';
@@ -17,13 +18,24 @@ class App extends Component {
           lng: 16.4479944
         }
       }
-    ]
+    ],
+    addMarkerModal: {
+      isOpen: false,
+      position: null
+    }
   };
 
-  addMarker = marker =>
+  showAddMarkerModal = position => this.setState({ addMarkerModal: { isOpen: true, position } });
+
+  hideAddMarkerModal = () => this.setState({ addMarkerModal: { isOpen: false, position: null } });
+
+  addMarker = marker => {
+    debugger;
+
     this.setState(state => ({
       markers: [...state.markers, marker]
     }));
+  };
 
   removeMarker = markerId =>
     this.setState(state => ({
@@ -35,9 +47,14 @@ class App extends Component {
       <div className="App">
         <Header title={'React Workshop @SeekandHit'} />
         <section className="content">
-          <FavoritesMap markers={this.state.markers} addMarker={this.addMarker} />
+          <FavoritesMap markers={this.state.markers} showAddMarkerModal={this.showAddMarkerModal} />
           <MarkerList markers={this.state.markers} removeMarker={this.removeMarker} />
         </section>
+        <AddMarkerModal
+          hideModal={this.hideAddMarkerModal}
+          onSave={this.addMarker}
+          {...this.state.addMarkerModal}
+        />
       </div>
     );
   }

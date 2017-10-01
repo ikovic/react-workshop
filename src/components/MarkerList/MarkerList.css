@@ -1,0 +1,8 @@
+.markerItem {
+  margin: 8px 4px;
+}
+
+.removeButton {
+  margin: 0 8px;
+  color: red;
+}

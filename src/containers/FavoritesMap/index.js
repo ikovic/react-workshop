@@ -33,6 +33,7 @@ class FavoritesMap extends Component {
           zoom={zoom}
           initialCenter={center}
           style={style}
+          containerStyle={style}
           clickableIcons={false}
         >
           {this.renderMarkers()}

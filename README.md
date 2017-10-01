@@ -26,3 +26,11 @@ Rest of the stuff is mostly configuration for tools used. To learn more about pr
 container components only when we need to hold data and perform business logic. Presentational components are just used for 
 displaying the state passed from their parent container components. Presentational components are easy to understand and 
 really reusable.
+
+## Relevant topics
+
+- different way of writing properties in ES6 classes
+- Stateless Functional Components
+- avoiding unnecessary renders
+- binding `this`
+- creating new objects instead of mutating them

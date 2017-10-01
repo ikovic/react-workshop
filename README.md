@@ -29,6 +29,8 @@ really reusable.
 
 ## Relevant topics
 
+- handling forms 
+- applying styles with `style` and `className` attributes
 - different ways of writing properties in ES6 classes
 - Stateless Functional Components
 - avoiding unnecessary renders

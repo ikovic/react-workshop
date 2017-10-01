@@ -1,25 +1,46 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import Marker from 'components/Marker';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import './FavoritesMap.css';
 
-export default class FavoritesMap extends Component {
-  static defaultProps = {
-    center: [59.938043, 30.337157],
-    zoom: 9
+const style = {
+  width: '600px',
+  height: '600px'
+};
+
+class FavoritesMap extends Component {
+  onMarkerClick = (props, marker, e) => {
+    console.log(props, marker, e);
   };
 
   render() {
     return (
       <div className="map">
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyD3wsBIBCbVgvShE_-ZVrFWYvTBximAcLE' }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+        <Map
+          google={this.props.google}
+          zoom={13}
+          initialCenter={{
+            lat: 43.5109992,
+            lng: 16.4479944
+          }}
+          style={style}
+          clickableIcons={false}
         >
-          <Marker lat={59.955413} lng={30.337844} text={'Kreyser Avrora'} />
-        </GoogleMapReact>
+          <Marker
+            onClick={this.onMarkerClick}
+            title={'Text tooltip'}
+            name={{ id: '123', test: 'test' }}
+            position={{
+              lat: 43.5109992,
+              lng: 16.4479944
+            }}
+          />
+        </Map>
       </div>
     );
   }
 }
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyD3wsBIBCbVgvShE_-ZVrFWYvTBximAcLE',
+  version: '3'
+})(FavoritesMap);

@@ -20,6 +20,9 @@ class FavoritesMap extends Component {
     console.log(props, marker, e);
   };
 
+  renderMarkers = () =>
+    this.props.markers.map(marker => <Marker key={marker.name.id} onClick={this.onMarkerClick} {...marker} />);
+
   render() {
     const { center, zoom } = this.state;
 
@@ -32,15 +35,7 @@ class FavoritesMap extends Component {
           style={style}
           clickableIcons={false}
         >
-          <Marker
-            onClick={this.onMarkerClick}
-            title={'Text tooltip'}
-            name={{ id: '123', test: 'test' }}
-            position={{
-              lat: 43.5109992,
-              lng: 16.4479944
-            }}
-          />
+          {this.renderMarkers()}
         </Map>
       </div>
     );

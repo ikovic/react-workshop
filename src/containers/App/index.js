@@ -24,7 +24,7 @@ class App extends Component {
       <div className="App">
         <Header title={'React Workshop @SeekandHit'} />
         <section className="content">
-          <FavoritesMap />
+          <FavoritesMap markers={this.state.markers} />
         </section>
       </div>
     );

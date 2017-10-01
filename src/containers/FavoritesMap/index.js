@@ -20,8 +20,23 @@ class FavoritesMap extends Component {
     console.log(props, marker, e);
   };
 
+  onMapClick = (mapProps, map, clickEvent) => {
+    const { latLng: { lat, lng } } = clickEvent;
+
+    return this.props.addMarker({
+      title: 'Another',
+      name: { id: Date.now(), text: 'YES' },
+      position: {
+        lat: lat(),
+        lng: lng()
+      }
+    });
+  };
+
   renderMarkers = () =>
-    this.props.markers.map(marker => <Marker key={marker.name.id} onClick={this.onMarkerClick} {...marker} />);
+    this.props.markers.map(marker => (
+      <Marker key={marker.name.id} onClick={this.onMarkerClick} {...marker} />
+    ));
 
   render() {
     const { center, zoom } = this.state;
@@ -32,6 +47,7 @@ class FavoritesMap extends Component {
           google={this.props.google}
           zoom={zoom}
           initialCenter={center}
+          onClick={this.onMapClick}
           style={style}
           containerStyle={style}
           clickableIcons={false}

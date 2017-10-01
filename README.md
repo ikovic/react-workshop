@@ -29,7 +29,7 @@ really reusable.
 
 ## Relevant topics
 
-- different way of writing properties in ES6 classes
+- different ways of writing properties in ES6 classes
 - Stateless Functional Components
 - avoiding unnecessary renders
 - binding `this`

@@ -35,7 +35,7 @@ class App extends Component {
       <div className="App">
         <Header title={'React Workshop @SeekandHit'} />
         <section className="content">
-          <FavoritesMap markers={this.state.markers} />
+          <FavoritesMap markers={this.state.markers} addMarker={this.addMarker} />
           <MarkerList markers={this.state.markers} removeMarker={this.removeMarker} />
         </section>
       </div>

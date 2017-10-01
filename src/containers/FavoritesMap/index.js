@@ -8,20 +8,27 @@ const style = {
 };
 
 class FavoritesMap extends Component {
+  state = {
+    center: {
+      lat: 43.5109992,
+      lng: 16.4479944
+    },
+    zoom: 13
+  };
+
   onMarkerClick = (props, marker, e) => {
     console.log(props, marker, e);
   };
 
   render() {
+    const { center, zoom } = this.state;
+
     return (
       <div className="map">
         <Map
           google={this.props.google}
-          zoom={13}
-          initialCenter={{
-            lat: 43.5109992,
-            lng: 16.4479944
-          }}
+          zoom={zoom}
+          initialCenter={center}
           style={style}
           clickableIcons={false}
         >

@@ -32,13 +32,10 @@ class App extends Component {
 
   setHighlightedMarker = markerId => this.setState({ highlightedMarkerId: markerId });
 
-  addMarker = marker => {
-    debugger;
-
+  addMarker = marker =>
     this.setState(state => ({
       markers: [...state.markers, marker]
     }));
-  };
 
   removeMarker = markerId =>
     this.setState(state => ({
@@ -57,11 +54,14 @@ class App extends Component {
             showAddMarkerModal={this.showAddMarkerModal}
             highlightMarker={this.setHighlightedMarker}
           />
-          <MarkerList
-            markers={markers}
-            removeMarker={this.removeMarker}
-            highlightedMarkerId={highlightedMarkerId}
-          />
+          <div>
+            <h3 style={{marginLeft: '16px'}}>Favorites</h3>
+            <MarkerList
+              markers={markers}
+              removeMarker={this.removeMarker}
+              highlightedMarkerId={highlightedMarkerId}
+            />
+          </div>
         </section>
         <AddMarkerModal
           hideModal={this.hideAddMarkerModal}

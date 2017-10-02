@@ -11,7 +11,7 @@ const MarkerItem = ({ marker, removeMarker, highlighted }) => (
 );
 
 const MarkerList = ({ markers, removeMarker, highlightedMarkerId }) => (
-  <ul>
+  <ul className="markerList">
     {markers.map(marker => (
       <MarkerItem
         key={marker.name.id}

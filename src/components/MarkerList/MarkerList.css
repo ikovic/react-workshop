@@ -1,5 +1,13 @@
+.markerList {
+  margin-left: 16px;
+  padding-left: 0;
+}
+
 .markerItem {
-  margin: 8px 4px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 120px;
+  margin: 8px 0;
 }
 
 .markerItem.highlighted {

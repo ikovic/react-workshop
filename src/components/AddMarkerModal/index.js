@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import './AddMarkerModal.css';
 
 const style = {
   overlay: {
@@ -12,8 +13,8 @@ const style = {
   },
   content: {
     position: 'absolute',
-    width: '300px',
-    height: '200px',
+    width: '200px',
+    height: '150px',
     top: '40px',
     left: '40px',
     right: '40px',
@@ -52,27 +53,29 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <div>
+        <div className="formRow">
           <label htmlFor="markerTooltip">Tooltip</label>
           <input
             style={{ marginLeft: '4px' }}
             type="text"
             name="tooltip"
             id="markerTooltip"
+            className="formInput"
             ref={input => (this.tooltip = input)}
           />
         </div>
-        <div>
+        <div className="formRow">
           <label htmlFor="markerName">Name</label>
           <input
             style={{ marginLeft: '4px' }}
             type="text"
             name="name"
             id="markerName"
+            className="formInput"
             ref={input => (this.name = input)}
           />
         </div>
-        <button type="submit">Save</button>
+        <button className="submitButton" type="submit">Save</button>
       </form>
     </Modal>
   );

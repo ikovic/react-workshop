@@ -1,8 +1,8 @@
 import React from 'react';
 import './MarkerList.css';
 
-const MarkerItem = ({ marker, removeMarker }) => (
-  <li className="markerItem">
+const MarkerItem = ({ marker, removeMarker, highlighted }) => (
+  <li className={`markerItem ${highlighted ? 'highlighted' : ''}`}>
     {marker.name.text}
     <button onClick={() => removeMarker(marker.name.id)} className="removeButton">
       Remove
@@ -10,10 +10,15 @@ const MarkerItem = ({ marker, removeMarker }) => (
   </li>
 );
 
-const MarkerList = ({ markers, removeMarker }) => (
+const MarkerList = ({ markers, removeMarker, highlightedMarkerId }) => (
   <ul>
     {markers.map(marker => (
-      <MarkerItem key={marker.name.id} marker={marker} removeMarker={removeMarker} />
+      <MarkerItem
+        key={marker.name.id}
+        marker={marker}
+        removeMarker={removeMarker}
+        highlighted={marker.name.id === highlightedMarkerId}
+      />
     ))}
   </ul>
 );

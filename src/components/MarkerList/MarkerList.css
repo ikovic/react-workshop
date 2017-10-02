@@ -2,6 +2,11 @@
   margin: 8px 4px;
 }
 
+.markerItem.highlighted {
+  font-weight: bold;
+  color: blue;
+}
+
 .removeButton {
   margin: 0 8px;
   color: red;

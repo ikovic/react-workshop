@@ -16,9 +16,7 @@ class FavoritesMap extends Component {
     zoom: 13
   };
 
-  onMarkerClick = (props, marker, e) => {
-    console.log(props, marker, e);
-  };
+  onMarkerClick = markerProps => this.props.highlightMarker(markerProps.name.id);
 
   onMapClick = (mapProps, map, clickEvent) => {
     const { latLng: { lat, lng } } = clickEvent;

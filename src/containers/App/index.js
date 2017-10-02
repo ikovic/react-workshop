@@ -22,12 +22,15 @@ class App extends Component {
     addMarkerModal: {
       isOpen: false,
       position: null
-    }
+    },
+    highlightedMarkerId: null
   };
 
   showAddMarkerModal = position => this.setState({ addMarkerModal: { isOpen: true, position } });
 
   hideAddMarkerModal = () => this.setState({ addMarkerModal: { isOpen: false, position: null } });
+
+  setHighlightedMarker = markerId => this.setState({ highlightedMarkerId: markerId });
 
   addMarker = marker => {
     debugger;
@@ -43,12 +46,22 @@ class App extends Component {
     }));
 
   render() {
+    const { markers, highlightedMarkerId } = this.state;
+
     return (
       <div className="App">
         <Header title={'React Workshop @SeekandHit'} />
         <section className="content">
-          <FavoritesMap markers={this.state.markers} showAddMarkerModal={this.showAddMarkerModal} />
-          <MarkerList markers={this.state.markers} removeMarker={this.removeMarker} />
+          <FavoritesMap
+            markers={markers}
+            showAddMarkerModal={this.showAddMarkerModal}
+            highlightMarker={this.setHighlightedMarker}
+          />
+          <MarkerList
+            markers={markers}
+            removeMarker={this.removeMarker}
+            highlightedMarkerId={highlightedMarkerId}
+          />
         </section>
         <AddMarkerModal
           hideModal={this.hideAddMarkerModal}

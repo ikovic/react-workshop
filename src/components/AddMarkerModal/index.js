@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
+
+import FormInputField from 'components/FormInputField';
 import './AddMarkerModal.css';
 
 const style = {
@@ -75,6 +77,7 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
             ref={input => (this.name = input)}
           />
         </div>
+        <FormInputField label='vojko' id = "markerTooltip" name = "tooltip" />
         <button className="submitButton" type="submit">Save</button>
       </form>
     </Modal>

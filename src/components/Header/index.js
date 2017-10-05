@@ -6,7 +6,7 @@ var objekt = {
 }
 
 //destrukturiranje
-var { properti, test } = object;
+var { properti, test } = objekt;
 
 const Header = ({ title }) => (
   <header>

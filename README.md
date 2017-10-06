@@ -2,7 +2,7 @@
 
 This is a demo project created for React Workshop held at [SeekandHit](https://seekandhit.com/). 
 Project is going to be improved incrementally on each workshop, so tags will be available to 
-browse through each workshop content.
+browse through content of each workshop.
 
 App renders a google map, and enables you to create a list of favorite places on that map.
 
@@ -36,3 +36,15 @@ really reusable.
 - avoiding unnecessary renders
 - binding `this`
 - creating new objects instead of mutating them
+
+## Need-to-know stuff
+
+We will be using ES6 syntax throughout the project since it will allow us to write more succint and readable code. 
+Here is some stuff you will need to know to understand the source code:
+- [variable declarations](https://medium.com/@southcapital/es6-variable-declaration-with-let-and-const-c26b4b03ff5)
+- [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+- [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+Pay special attention to destructuring and rest/spread operators since they will be used everywhere.

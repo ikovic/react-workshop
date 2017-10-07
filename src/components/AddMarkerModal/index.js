@@ -34,7 +34,10 @@ const style = {
 
 const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
 
-  const newMarker = { name: {}, position: position };
+  const newMarker = { 
+    name: { id: new Date() }, 
+    position: position
+  };
 
   const onSubmit = e => {
     e.preventDefault();

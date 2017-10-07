@@ -27,7 +27,6 @@ class FavoritesMap extends Component {
     };
 
     return this.props.showAddMarkerModal(position);
-
   };
 
   renderMarkers = () =>

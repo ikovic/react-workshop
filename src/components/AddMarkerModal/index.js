@@ -58,8 +58,8 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <InputField label='Tooltip' id="markerTooltip" name="tooltip" onChange={onTooltipValueChanged} />
-        <InputField label='Name' id="markerName" name="name" onChange={onNameValueChanged} />    
+        <InputField label="Tooltip" id="markerTooltip" name="tooltip" onChange={onTooltipValueChanged} />
+        <InputField label="Name" id="markerName" name="name" onChange={onNameValueChanged} />    
         <button className="submitButton" type="submit">
           Save
         </button>

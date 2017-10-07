@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
+import InputField from 'components/InputField';
 
-import FormInputField from 'components/FormInputField';
 import './AddMarkerModal.css';
 
 const style = {
@@ -59,9 +59,11 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <FormInputField label='name' id="markerName" name="name" onChange={onNameValueChanged} />
-        <FormInputField label='tooltip' id="markerTooltip" name="tooltip" onChange={onTooltipValueChanged} />
-        <button className="submitButton" type="submit">Save</button>
+        <InputField label='Name' id="markerName" name="name" onChange={onNameValueChanged} />
+        <InputField label='Tooltip' id="markerTooltip" name="tooltip" onChange={onTooltipValueChanged} />
+        <button className="submitButton" type="submit">
+          Save
+        </button>
       </form>
     </Modal>
   );

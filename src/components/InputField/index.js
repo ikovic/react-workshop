@@ -1,7 +1,7 @@
 import React from 'react';
-import './FormInputField.css';
+import './InputField.css';
 
-const FormInputField = ({ label, id, name, onChange }) => {
+const InputField = ({ label, id, name, onChange }) => {
 
   const wrappedOnChange = (event) => onChange(event.target.value);
 
@@ -21,5 +21,4 @@ const FormInputField = ({ label, id, name, onChange }) => {
   );
 }
 
-
-export default FormInputField;
+export default InputField;

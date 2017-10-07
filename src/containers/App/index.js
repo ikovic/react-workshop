@@ -17,7 +17,7 @@ class App extends Component {
           lat: 43.5109992,
           lng: 16.4479944
         }
-      } 
+      }
     ],
     addMarkerModal: {
       isOpen: false,

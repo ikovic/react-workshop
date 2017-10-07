@@ -1,4 +1,4 @@
 {
-    "flow.enabled": true,
+    "flow.enabled": false,
     "editor.tabSize": 2
 }

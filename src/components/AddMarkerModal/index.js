@@ -31,6 +31,8 @@ const style = {
   }
 };
 
+console.log('test');
+
 const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
   const onSubmit = e => {
     e.preventDefault();

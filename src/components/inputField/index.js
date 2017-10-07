@@ -1,7 +1,7 @@
 import React from 'react';
 import './inputField.css';
 
-const InputField = ({ label, id, name, bindRef }) => (
+const InputField = ({ label, id, name, value, onChange }) => (
   <div className="formRow">
     <label htmlFor={id}>{label}</label>
     <input
@@ -10,7 +10,8 @@ const InputField = ({ label, id, name, bindRef }) => (
       name={name}
       id={id}
       className="formInput"
-      ref={bindRef}
+      value={value}
+      onChange={onChange}
     />
   </div>
 );

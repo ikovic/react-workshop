@@ -36,7 +36,7 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     e.preventDefault();
 
     hideModal();
-
+    
     onSave({
       position,
       name: { text: this.name.value, id: Date.now() },
@@ -54,8 +54,18 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <InputField label="Tooltip" id="markerTooltip" name="tooltip" />
-        <InputField label="Name" id="markerName" name="name" />
+        <InputField
+          label="Tooltip"
+          id="markerTooltip"
+          name="tooltip"
+          bindRef={input => (this.tooltip = input)}
+        />
+        <InputField
+          label="Name"
+          id="markerName"
+          name="name"
+          bindRef={input => (this.name = input)}
+        />
         <button className="submitButton" type="submit">
           Save
         </button>

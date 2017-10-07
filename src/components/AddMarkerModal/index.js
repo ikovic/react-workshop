@@ -43,8 +43,8 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     onSave(newMarker);
   };
 
-  const onNameValueChanged = (event) => newMarker.name.text = event.target.value;
-  const onTooltipValueChanged = (event) => newMarker.title = event.target.value;
+  const onNameValueChanged = (newName) => newMarker.name.text = newName;
+  const onTooltipValueChanged = (newTooltip) => newMarker.title = newTooltip;
 
   return (
     <Modal

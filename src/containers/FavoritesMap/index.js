@@ -32,7 +32,7 @@ class FavoritesMap extends Component {
 
   renderMarkers = () =>
     this.props.markers.map(marker => (
-      <Marker key={marker.name.id} onClick={this.onMarkerClick} {...marker} /> // syntax sugar koji salje propse
+      <Marker key={marker.name.id} onClick={this.onMarkerClick} {...marker} />
     ));
 
   render() {

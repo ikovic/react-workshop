@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import InputField from 'components/InputField';
+
 import './AddMarkerModal.css';
 
 const style = {
@@ -32,17 +33,20 @@ const style = {
 };
 
 const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
+  const newMarker = {
+    name: { id: new Date() },
+    position: position
+  };
+
   const onSubmit = e => {
     e.preventDefault();
 
     hideModal();
-
-    onSave({
-      position,
-      name: { text: this.name.value, id: Date.now() },
-      title: this.tooltip.value
-    });
+    onSave(newMarker);
   };
+
+  const onNameValueChanged = newName => (newMarker.name.text = newName);
+  const onTooltipValueChanged = newTooltip => (newMarker.title = newTooltip);
 
   return (
     <Modal
@@ -54,8 +58,13 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <InputField label="Tooltip" id="markerTooltip" name="tooltip" />
-        <InputField label="Name" id="markerName" name="name" />
+        <InputField
+          label="Tooltip"
+          id="markerTooltip"
+          name="tooltip"
+          onChange={onTooltipValueChanged}
+        />
+        <InputField label="Name" id="markerName" name="name" onChange={onNameValueChanged} />
         <button className="submitButton" type="submit">
           Save
         </button>

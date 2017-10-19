@@ -33,8 +33,8 @@ const style = {
 };
 
 const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
-  const newMarker = { 
-    name: { id: new Date() }, 
+  const newMarker = {
+    name: { id: new Date() },
     position: position
   };
 
@@ -45,8 +45,8 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     onSave(newMarker);
   };
 
-  const onNameValueChanged = (newName) => newMarker.name.text = newName;
-  const onTooltipValueChanged = (newTooltip) => newMarker.title = newTooltip;
+  const onNameValueChanged = newName => (newMarker.name.text = newName);
+  const onTooltipValueChanged = newTooltip => (newMarker.title = newTooltip);
 
   return (
     <Modal
@@ -58,8 +58,13 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
     >
       <h3>Add Marker</h3>
       <form onSubmit={onSubmit}>
-        <InputField label="Tooltip" id="markerTooltip" name="tooltip" onChange={onTooltipValueChanged} />
-        <InputField label="Name" id="markerName" name="name" onChange={onNameValueChanged} />    
+        <InputField
+          label="Tooltip"
+          id="markerTooltip"
+          name="tooltip"
+          onChange={onTooltipValueChanged}
+        />
+        <InputField label="Name" id="markerName" name="name" onChange={onNameValueChanged} />
         <button className="submitButton" type="submit">
           Save
         </button>

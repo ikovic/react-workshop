@@ -1,0 +1,10 @@
+.App {
+  height: 100%;
+  width: 100%;
+  padding: 8px 32px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}

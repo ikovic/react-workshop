@@ -1,0 +1,21 @@
+.markerList {
+  margin-left: 16px;
+  padding-left: 0;
+}
+
+.markerItem {
+  display: flex;
+  justify-content: space-between;
+  min-width: 120px;
+  margin: 8px 0;
+}
+
+.markerItem.highlighted {
+  font-weight: bold;
+  color: blue;
+}
+
+.removeButton {
+  margin: 0 8px;
+  color: red;
+}

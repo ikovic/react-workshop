@@ -55,7 +55,7 @@ class App extends Component {
             highlightMarker={this.setHighlightedMarker}
           />
           <div>
-            <h3 style={{marginLeft: '16px'}}>Favorites</h3>
+            <h3 style={{ marginLeft: '16px' }}>Favorites</h3>
             <MarkerList
               markers={markers}
               removeMarker={this.removeMarker}

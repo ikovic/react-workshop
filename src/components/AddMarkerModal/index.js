@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
 import InputField from 'components/InputField';
+import { addMarker } from 'redux/modules/markers';
 
 import './AddMarkerModal.css';
 
@@ -73,4 +75,6 @@ const AddMarkerModal = ({ isOpen, hideModal, position, onSave }) => {
   );
 };
 
-export default AddMarkerModal;
+const mapDispatchToProps = dispatch => ({ onSave: marker => dispatch(addMarker(marker)) });
+
+export default connect(null, mapDispatchToProps)(AddMarkerModal);

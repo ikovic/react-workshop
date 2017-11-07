@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Header from 'components/Header';
 import MarkerList from 'components/MarkerList';
@@ -9,16 +10,6 @@ import './App.css';
 
 class App extends Component {
   state = {
-    markers: [
-      {
-        title: 'Shows in tooltip',
-        name: { id: '123', text: 'test' },
-        position: {
-          lat: 43.5109992,
-          lng: 16.4479944
-        }
-      }
-    ],
     addMarkerModal: {
       isOpen: false,
       position: null
@@ -32,18 +23,9 @@ class App extends Component {
 
   setHighlightedMarker = markerId => this.setState({ highlightedMarkerId: markerId });
 
-  addMarker = marker =>
-    this.setState(state => ({
-      markers: [...state.markers, marker]
-    }));
-
-  removeMarker = markerId =>
-    this.setState(state => ({
-      markers: state.markers.filter(marker => marker.name.id !== markerId)
-    }));
-
   render() {
-    const { markers, highlightedMarkerId } = this.state;
+    const { highlightedMarkerId } = this.state;
+    const { markers } = this.props;
 
     return (
       <div className="App">
@@ -56,21 +38,15 @@ class App extends Component {
           />
           <div>
             <h3 style={{ marginLeft: '16px' }}>Favorites</h3>
-            <MarkerList
-              markers={markers}
-              removeMarker={this.removeMarker}
-              highlightedMarkerId={highlightedMarkerId}
-            />
+            <MarkerList markers={markers} highlightedMarkerId={highlightedMarkerId} />
           </div>
         </section>
-        <AddMarkerModal
-          hideModal={this.hideAddMarkerModal}
-          onSave={this.addMarker}
-          {...this.state.addMarkerModal}
-        />
+        <AddMarkerModal hideModal={this.hideAddMarkerModal} {...this.state.addMarkerModal} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({ markers: state.markers.items });
+
+export default connect(mapStateToProps)(App);

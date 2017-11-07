@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeMarker } from 'redux/modules/markers';
 import './MarkerList.css';
 
 const MarkerItem = ({ marker, removeMarker, highlighted }) => (
@@ -23,4 +25,6 @@ const MarkerList = ({ markers, removeMarker, highlightedMarkerId }) => (
   </ul>
 );
 
-export default MarkerList;
+export default connect(null, dispatch => ({ removeMarker: id => dispatch(removeMarker(id)) }))(
+  MarkerList
+);
